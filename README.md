@@ -1,1 +1,1 @@
-# Mahjong_Assistent
+# Mahjong_Assistant
