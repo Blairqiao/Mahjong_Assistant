@@ -35,7 +35,7 @@ class GameState:
     def update_from_vision(self, boxes, yolo_names):
         """
         Translates raw YOLO bounding box detections into structured game domains
-        by looking at the spatial layout (e.g. Y-coordinates for player hand).
+        by looking at the spatial layout.
         """
         self.hand_array = [0] * 34
         
@@ -68,33 +68,6 @@ class GameState:
                 
             if 0 <= idx < 34 and self.hand_array[idx] < 4:
                 self.hand_array[idx] += 1
-
-    def generate_test_hand(self):
-        """
-        Creates a semi-random 14-tile test hand array for logic testing.
-        Includes 1-3 completed sets (triplets/runs) and 1-2 one-off sets.
-        """
-        # Reset hand
-        self.hand_array = [0] * 34
-        
-        self.hand_array[2] += 1
-        self.hand_array[3] += 1
-        self.hand_array[4] += 1
-        self.hand_array[5] += 1
-
-        self.hand_array[8] += 1
-
-        self.hand_array[10] += 1
-        self.hand_array[11] += 1
-        self.hand_array[16] += 1
-        
-        self.hand_array[21] += 1
-        self.hand_array[23] += 1
-
-        self.hand_array[27] += 2
-
-        self.hand_array[29] += 1
-        self.hand_array[30] += 1
 
 
         

@@ -132,20 +132,7 @@ class VisionEngine:
         results = self.model.predict(frame, imgsz=640, conf=0.15, iou=0.25, agnostic_nms=True, verbose=False)
         
         clean_boxes = self.remove_duplicates_by_distance(results[0].boxes, min_distance_px=25)
-        debug_frame = results[0].plot()
-        # print(f"VisionEngine: Detected {len(clean_boxes.boxes)} tiles after duplicate removal.")
-        # class_dict = self.model.names
-    
-        # Print a clean summary to your terminal every frame
-        # print(f"--- AI Vision Update: Detected {len(boxes)} tiles ---")
-        
-        # Optional: Loop through every single box and print its exact confidence
-        # (Uncomment this if you want to see the exact math of the ghost boxes)
-        # for i, box in enumerate(boxes):
-        #     class_id = int(box.cls[0])
-        #     tile_name = class_dict[class_id]
-        #     conf = float(box.conf[0])
-        #     print(f"Tile {i+1}: {tile_name} | Confidence: {conf:.2f}")            
+        debug_frame = results[0].plot()    
 
         return clean_boxes, debug_frame
 

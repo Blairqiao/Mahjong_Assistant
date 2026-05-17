@@ -9,7 +9,6 @@ class LogicCalculator:
     def calculate_shanten(self, hand_34_array):
         """
         Returns the tiles away from tenpai.
-        -1 = Tsuigou/Agari, 0 = Tenpai, 1 = 1-shanten...
         """
         return self.shanten_calc.calculate_shanten(hand_34_array)
         
@@ -34,7 +33,7 @@ class LogicCalculator:
                 # Check if it improves or matches our minimum found shanten
                 if current_shanten < min_shanten:
                     min_shanten = current_shanten
-                    discard_ukeire_map.clear()  # Clear worse shantens
+                    discard_ukeire_map.clear()
                 
                 if current_shanten == min_shanten:
                     ukeire_count = 0
